@@ -12,4 +12,14 @@ Use of discussion boards and other tools, communication expectations, how will t
 I need to be able to pull recommended genres based off a certain set of user entered constraints. What genres are similar to the user entered data?
 
 
+# list of resources and “operations”
+
+https://www.musicgenreslist.com/about-music-genre-site/
+
+https://www.parsehub.com/
+
+https://swagger.io/
+
+https://www.tutorialspoint.com/restful/restful_jax_rs.htm
+
 
