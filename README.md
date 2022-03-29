@@ -11,6 +11,14 @@ Use of discussion boards and other tools, communication expectations, how will t
 ## Problem Statement
 I need to be able to pull recommended genres based off a certain set of user entered constraints. What genres are similar to the user entered data?
 
+## Operations:
+* Get a genre’s parent genre in plain text or JSON
+* Get a genre’s sibling genres in plain text or JSON
+* Get a genre’s parent genres in plain text or JSON
+* Add a genre (with parent genre if applicable)
+* Update a genre
+* Delete a genre (cascades all sub-genres)
+
 ## Roles
 * PROJECT MANAGER - Justin Hoang
 <br />*Coordinates the activities of the group. Keeps track of individual tasks. Ensures the team meets deadlines and commitments. Submits weekly assignments to Blackboard.*
