@@ -14,7 +14,7 @@ I need to be able to pull recommended genres based off a certain set of user ent
 ## Operations:
 * Get a genre’s parent genre in plain text or JSON
 * Get a genre’s sibling genres in plain text or JSON
-* Get a genre’s parent genres in plain text or JSON
+* Get a genre’s child genres in plain text or JSON
 * Add a genre (with parent genre if applicable)
 * Update a genre
 * Delete a genre (cascades all sub-genres)
