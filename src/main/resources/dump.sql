@@ -26,12 +26,12 @@ DROP TABLE IF EXISTS `genre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `genre` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `parent_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_parent_id_idx` (`parent_id`),
-  CONSTRAINT `fk_parent_id` FOREIGN KEY (`parent_id`) REFERENCES `genre` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+                         `id` int NOT NULL AUTO_INCREMENT,
+                         `name` varchar(255) NOT NULL,
+                         `parent_id` int DEFAULT NULL,
+                         PRIMARY KEY (`id`),
+                         KEY `fk_parent_id_idx` (`parent_id`),
+                         CONSTRAINT `fk_parent_id` FOREIGN KEY (`parent_id`) REFERENCES `genre` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=973 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
