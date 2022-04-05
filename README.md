@@ -9,7 +9,7 @@ Use of discussion boards and other tools, communication expectations, how will t
 * Primary synchronous meeting tool: Teams
 
 ## Problem Statement
-I need to be able to pull recommended genres based off a certain set of user entered constraints. What genres are similar to the user entered data?
+I need to be able to pull recommended music genres based off a certain set of user entered constraints. What genres are similar to the user entered data?
 
 ## Operations:
 * Get a genre’s parent genre in plain text or JSON
