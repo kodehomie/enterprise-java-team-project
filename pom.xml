@@ -218,7 +218,7 @@
     </dependencies>
 
     <build>
-        <finalName>IndieCosmetic project</finalName>
+        <finalName>Genre project</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
