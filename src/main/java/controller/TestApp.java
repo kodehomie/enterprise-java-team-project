@@ -17,7 +17,8 @@ import java.io.PrintWriter;
 )
 public class TestApp extends HttpServlet implements PropertiesLoader {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/test.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher(
+                "/src/main/webapp/test.jsp");
         dispatcher.forward(req, resp);
     }
 
