@@ -8,6 +8,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * The type Genre.
+ */
 @Entity
 @Table(name = "genre")
 @Data
@@ -27,26 +30,56 @@ public class Genre implements Serializable {
     @Column(name = "parent_id")
     private Long parentId;
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets parent id.
+     *
+     * @return the parent id
+     */
     public Long getParentId() {
         return parentId;
     }
 
+    /**
+     * Sets parent id.
+     *
+     * @param parentId the parent id
+     */
     public void setParentId(Long parentId) {
         this.parentId = parentId;
     }

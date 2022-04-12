@@ -7,11 +7,23 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-@Path("/run")
+/**
+ * The type Jax runner.
+ */
+@Path("/xml")
 public class JaxRunner {
 
+    /**
+     * The Dao.
+     */
     GenreDao dao;
 
+    /**
+     * Genre service string.
+     *
+     * @param g the g
+     * @return the string
+     */
     @GET
     @Path("{g}")
     @Produces("application/xml")

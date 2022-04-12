@@ -15,12 +15,25 @@ import javax.ws.rs.core.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * The type Json runner.
+ */
 @Path("/json")
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class JsonRunner extends ObjectMapper {
 
+    /**
+     * The Dao.
+     */
     GenreDao dao;
 
+    /**
+     * Genre service response.
+     *
+     * @param g the g
+     * @return the response
+     * @throws JSONException the json exception
+     */
     @GET
     @Path("{g}")
     @Produces("application/json")
