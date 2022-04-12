@@ -45,9 +45,11 @@
 //     */
 //    @Test
 //    void getByParentIdSuccess() {
-//        Genre genre = dao.getByParentId(1);
+//        Genre genre = dao.getByParentId(6);
+//        Genre genre2 = dao.getById(5);
+//        long tester = genre2.getParentId();
 //        assertNotNull(genre);
-//        assertEquals("Alternative", genre.getName());
+//        assertEquals(genre2, tester);
 //    }
 //
 //
@@ -104,5 +106,5 @@
 //        assertNull(dao.getById(20));
 //    }
 //}
-
-
+//
+//

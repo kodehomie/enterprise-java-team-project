@@ -5,7 +5,7 @@
 </head>
 <body>
 <p>Enter your genre</p>
-<form action="{war here}/test" method="POST">
+<form action="/test" method="POST">
     <input type="text" name="genre" />
     <input type="submit" value="submit"/>
 </form>

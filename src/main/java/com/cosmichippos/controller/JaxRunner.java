@@ -15,14 +15,20 @@ public class JaxRunner {
     @GET
     @Path("{g}")
     @Produces("application/xml")
-    public String genreService(@PathParam("g") int g) {
-
+    public String genreService(@PathParam("g") String g) {
         dao = new GenreDao();
-        Genre fTest = dao.getById(g);
-        String gTest = fTest.getName();
 
-        String result = "@Produces(\"application/xml\") Output:\n\n" + gTest + "\n\n";
-        return "<genreService>" + "<genre>" + result + "</genre>" + "</genreService>";
+        Genre inputGenre = dao.getByName(g);
+        long inputId = inputGenre.getId();
+        String inputName = inputGenre.getName();
+        long inputParent = inputGenre.getParentId();
+        Genre parentIdr = dao.getById(inputParent);
+        String parentName = parentIdr.getName();
+
+        return "<genreService>" + "<genreId>" + inputId + "</genreId>\n\n"
+                        + "<genreName>" + inputName + "</genreName>\n\n"
+                        + "<genreParent>" + inputParent + "</genreParent>\n\n"
+                        + "<genreParentName>" + parentName + "</genreParentName>" + "</genreService>";
     }
 
 }
