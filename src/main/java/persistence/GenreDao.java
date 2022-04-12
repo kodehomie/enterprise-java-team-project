@@ -123,4 +123,5 @@ public class GenreDao {
         session.close();
         return genre;
     }
+
 }
