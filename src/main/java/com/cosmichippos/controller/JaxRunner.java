@@ -1,6 +1,6 @@
-package controller;
-import entity.Genre;
-import persistence.GenreDao;
+package com.cosmichippos.controller;
+import com.cosmichippos.entity.Genre;
+import com.cosmichippos.persistence.GenreDao;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,13 +15,13 @@ public class JaxRunner {
     @GET
     @Path("{g}")
     @Produces("application/xml")
-    public String genreService(@PathParam("g") String g) {
+    public String genreService(@PathParam("g") int g) {
 
         dao = new GenreDao();
-        Genre fTest = dao.getByName(g);
+        Genre fTest = dao.getById(g);
+        String gTest = fTest.getName();
 
-
-        String result = "@Produces(\"application/xml\") Output:\n\n" + g + "\n\n";
+        String result = "@Produces(\"application/xml\") Output:\n\n" + gTest + "\n\n";
         return "<genreService>" + "<genre>" + result + "</genre>" + "</genreService>";
     }
 

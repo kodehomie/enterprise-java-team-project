@@ -1,6 +1,6 @@
-package controller;
+package com.cosmichippos.controller;
 
-import util.PropertiesLoader;
+import com.cosmichippos.util.PropertiesLoader;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

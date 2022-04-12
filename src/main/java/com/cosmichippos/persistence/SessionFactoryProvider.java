@@ -1,4 +1,4 @@
-package persistence;
+package com.cosmichippos.persistence;
 
 
 import org.hibernate.SessionFactory;

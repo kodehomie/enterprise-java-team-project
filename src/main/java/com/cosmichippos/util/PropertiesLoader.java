@@ -1,4 +1,4 @@
-package util;
+package com.cosmichippos.util;
 
 import java.io.IOException;
 import java.util.Properties;
