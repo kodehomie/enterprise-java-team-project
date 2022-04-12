@@ -33,10 +33,10 @@ public class JsonRunner extends ObjectMapper {
         long inputParent = inputGenre.getParentId();
         Genre parentIdr = dao.getById(inputParent);
         String parentName = parentIdr.getName();
-        jsonObject.put("Genre Id:", inputId);
-        jsonObject.put("Genre Name:", inputName);
-        jsonObject.put("Genre Parent Id:", inputParent);
-        jsonObject.put("Genre Parent Name:", parentName);
+        jsonObject.put("genreId", inputId);
+        jsonObject.put("genreName", inputName);
+        jsonObject.put("genreParentId", inputParent);
+        jsonObject.put("genreParentName", parentName);
 
         String result = "@Produces(\"application/json\") Output: \n\nGenre Checker Output: \n\n" + jsonObject;
         return Response.status(200).entity(result).build();
