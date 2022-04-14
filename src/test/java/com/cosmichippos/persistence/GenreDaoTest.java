@@ -45,9 +45,9 @@ public class GenreDaoTest {
     */
    @Test
    void getChildrenSuccess() {
-      List<Genre> children = dao.getChildren(1);
+      List<Genre> children = dao.getChildren(69);
        assertNotNull(children);
-       assertEquals(21, children.size());
+       assertEquals(3, children.size());
    }
 
 
