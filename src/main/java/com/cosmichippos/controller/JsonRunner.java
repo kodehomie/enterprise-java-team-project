@@ -38,20 +38,35 @@ public class JsonRunner extends ObjectMapper {
     @Path("{g}")
     @Produces("application/json")
     public Response genreService(@PathParam("g") String g) throws JSONException {
+
         dao = new GenreDao();
         JSONObject jsonObject = new JSONObject();
-        Genre inputGenre = dao.getByName(g);
-        long inputId = inputGenre.getId();
-        String inputName = inputGenre.getName();
-        long inputParent = inputGenre.getParentId() != null ? inputGenre.getParentId() : 0;
-        Genre parentIdr;
+
+        Genre inputGenre;
+        long inputId;
+        String inputName;
+        long inputParent;
         String parentName;
 
-        if (inputParent != 0) {
-            parentIdr = dao.getById(inputParent);
-            parentName = parentIdr.getName();
+        inputGenre = dao.getByName(g);
+
+        if (inputGenre != null) {
+
+            inputId = inputGenre.getId();
+            inputName = inputGenre.getName();
+
+            inputParent = inputGenre.getParentId() != null
+                    ? inputGenre.getParentId() : 0;
+            parentName = inputParent != 0
+                    ? dao.getById(inputParent).getName() : "None";
+
         } else {
+
+            inputId = 0;
+            inputName = "No genre found...";
+            inputParent = 0;
             parentName = "None";
+
         }
 
         jsonObject.put("genreId", inputId);

@@ -28,6 +28,7 @@ public class JaxRunner {
     @Path("{g}")
     @Produces("application/xml")
     public String genreService(@PathParam("g") String g) {
+
         dao = new GenreDao();
 
         Genre inputGenre;
