@@ -19,7 +19,7 @@ public class JaxRunner {
     GenreDao dao;
 
     /**
-     * Genre service string.
+     * Genre service.
      *
      * @param g the g
      * @return the string
@@ -34,21 +34,27 @@ public class JaxRunner {
         long inputId;
         String inputName;
         long inputParent;
-        Genre parentIdr;
         String parentName;
 
         inputGenre = dao.getByName(g);
-        inputId = inputGenre.getId();
-        inputName = inputGenre.getName();
-        inputParent = inputGenre.getParentId() != null
+
+        if (inputGenre != null) {
+
+            inputId = inputGenre.getId();
+            inputName = inputGenre.getName();
+
+            inputParent = inputGenre.getParentId() != null
                     ? inputGenre.getParentId() : 0;
+            parentName = inputParent != 0
+                    ? dao.getById(inputParent).getName() : "None";
 
-
-        if (inputParent != 0) {
-            parentIdr = dao.getById(inputParent);
-            parentName = parentIdr.getName();
         } else {
+
+            inputId = 0;
+            inputName = "No genre found...";
+            inputParent = 0;
             parentName = "None";
+
         }
 
         return "<genreService>" + "<genreId>" + inputId + "</genreId>\n\n"
