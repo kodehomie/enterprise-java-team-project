@@ -63,7 +63,7 @@ public class JsonRunner extends ObjectMapper {
         } else {
 
             inputId = 0;
-            inputName = "No genre found...";
+            inputName = String.format("No genre found for '%s'...", g);
             inputParent = 0;
             parentName = "None";
 
