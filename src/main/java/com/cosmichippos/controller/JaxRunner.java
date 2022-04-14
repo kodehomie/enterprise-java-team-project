@@ -33,9 +33,20 @@ public class JaxRunner {
         Genre inputGenre = dao.getByName(g);
         long inputId = inputGenre.getId();
         String inputName = inputGenre.getName();
-        long inputParent = inputGenre.getParentId();
-        Genre parentIdr = dao.getById(inputParent);
-        String parentName = parentIdr.getName();
+        long inputParent = inputGenre.getParentId() != null ? inputGenre.getParentId() : 0;
+        Genre parentIdr;
+        String parentName;
+
+        if (inputParent != 0) {
+
+            parentIdr = dao.getById(inputParent);
+            parentName = parentIdr.getName();
+
+        } else {
+
+            parentName = "None";
+
+        }
 
         return "<genreService>" + "<genreId>" + inputId + "</genreId>\n\n"
                         + "<genreName>" + inputName + "</genreName>\n\n"
