@@ -43,9 +43,17 @@ public class JsonRunner extends ObjectMapper {
         Genre inputGenre = dao.getByName(g);
         long inputId = inputGenre.getId();
         String inputName = inputGenre.getName();
-        long inputParent = inputGenre.getParentId();
-        Genre parentIdr = dao.getById(inputParent);
-        String parentName = parentIdr.getName();
+        long inputParent = inputGenre.getParentId() != null ? inputGenre.getParentId() : 0;
+        Genre parentIdr;
+        String parentName;
+
+        if (inputParent != 0) {
+            parentIdr = dao.getById(inputParent);
+            parentName = parentIdr.getName();
+        } else {
+            parentName = "None";
+        }
+
         jsonObject.put("genreId", inputId);
         jsonObject.put("genreName", inputName);
         jsonObject.put("genreParentId", inputParent);
