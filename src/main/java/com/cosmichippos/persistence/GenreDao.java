@@ -94,12 +94,12 @@ public class GenreDao {
      * @param genre the genre
      * @return the int
      */
-    public int insert(Genre genre) {
-        int id = 0;
+    public long insert(Genre genre) {
+        long id;
         logger.debug("Inserting: {}", genre);
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        id = (int)session.save(genre);
+        id = (long)session.save(genre);
         transaction.commit();
         session.close();
         return id;

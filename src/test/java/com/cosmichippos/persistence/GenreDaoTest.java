@@ -83,17 +83,17 @@ public class GenreDaoTest {
        assertEquals(genreToUpdate, retrievedGenre);
    }
 
-   // /**
-   //  * Verify insert genre
-   //  */
-   // @Test
-   // void insertSuccess() {
-   //     Genre genre = new Genre(19, "Country Song",1);
-   //     long id = dao.insert(genre);
-   //     assertNotEquals(0, id);
-   //     Genre insertedGenre = dao.getById(id);
-   //     assertEquals(genre, insertedGenre);
-   // }
+   /**
+    * Verify insert genre
+    */
+   @Test
+   void insertSuccess() {
+       Genre genre = new Genre(973L, "Test Genre",1L);
+       long id = dao.insert(genre);
+       assertNotEquals(0, id);
+       Genre insertedGenre = dao.getById(id);
+       assertEquals(genre, insertedGenre);
+   }
 
    /**
     * Verify delete genre
