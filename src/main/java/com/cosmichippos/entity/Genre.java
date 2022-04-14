@@ -31,7 +31,6 @@ public class Genre implements Serializable {
     private Long parentId;
 
 
-
     /**
      * Gets id.
      *

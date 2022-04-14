@@ -17,10 +17,8 @@ import java.util.Properties;
  * Provides access the database
  * Created on 8/31/16.
  *
- * @author pwaite
- * used by palmerlarson 4/12/22
+ * @author pwaite  used by palmerlarson 4/12/22
  */
-
 public class Database {
 
     private final Logger logger = LogManager.getLogger(this.getClass());

@@ -118,6 +118,12 @@ public class GenreDao {
         session.close();
     }
 
+    /**
+     * Gets by name.
+     *
+     * @param name the name
+     * @return the by name
+     */
     public Genre getByName(String name) {
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
