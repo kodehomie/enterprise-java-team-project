@@ -1,4 +1,4 @@
-package test.util;
+package com.cosmichippos.testUtils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,47 +18,68 @@ import java.util.Properties;
  * Created on 8/31/16.
  *
  * @author pwaite
+ * used by palmerlarson 4/12/22
  */
 
 public class Database {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
-    // create an object of the class Database
+
     private static Database instance = new Database();
 
     private Properties properties;
 
     private Connection connection;
 
-    // private constructor prevents instantiating this class anywhere else
+    private static final String DATABASE_PROPERTIES_FILE = "/database.properties";
+
+    /**
+     * Create the database class
+     */
     private Database() {
         loadProperties();
 
     }
 
+    /**
+     * Load up properties for connection info
+     */
+
     private void loadProperties() {
         properties = new Properties();
         try {
-            properties.load (this.getClass().getResourceAsStream("/database.properties"));
+            properties.load (this.getClass().getResourceAsStream(DATABASE_PROPERTIES_FILE));
         } catch (IOException ioe) {
-            System.out.println("Database.loadProperties()...Cannot load the properties file");
-            ioe.printStackTrace();
+            logger.error("Database.loadProperties()...Cannot load the properties file", ioe);
         } catch (Exception e) {
-            System.out.println("Database.loadProperties()..." + e);
-            e.printStackTrace();
+            logger.error("Database.loadProperties()...", e);
         }
 
     }
 
-    // get the only Database object available
+    /**
+     * Gets instance - singleton pattern usage.
+     *
+     * @return the instance
+     */
     public static Database getInstance() {
         return instance;
     }
 
+    /**
+     * Gets connection.
+     *
+     * @return the connection
+     */
     public Connection getConnection() {
         return connection;
     }
 
+    /**
+     * Connect.
+     *
+     * @throws Exception the exception
+     */
     public void connect() throws Exception {
         if (connection != null)
             return;
@@ -73,12 +94,15 @@ public class Database {
         connection = DriverManager.getConnection(url, properties.getProperty("username"),  properties.getProperty("password"));
     }
 
+    /**
+     * Disconnect.
+     */
     public void disconnect() {
         if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("Cannot close connection" + e);
+                logger.error("Cannot close connection", e);
             }
         }
 
