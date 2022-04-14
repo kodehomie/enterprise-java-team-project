@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -94,12 +95,12 @@ public class GenreDao {
      * @param genre the genre
      * @return the int
      */
-    public int insert(Genre genre) {
-        int id = 0;
+    public long insert(Genre genre) {
+        long id;
         logger.debug("Inserting: {}", genre);
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        id = (int)session.save(genre);
+        id = (long)session.save(genre);
         transaction.commit();
         session.close();
         return id;
@@ -125,7 +126,15 @@ public class GenreDao {
         Root<Genre> root = query.from(Genre.class);
         Expression<String> propertyPath = root.get("name");
         query.where(builder.equal(propertyPath, name));
-        Genre genre = session.createQuery(query).getSingleResult();
+        Genre genre;
+
+        try {
+            genre = session.createQuery(query).getSingleResult();
+        } catch (NoResultException nrex) {
+            logger.info("There was no result: ", nrex);
+            genre = null;
+        }
+
         session.close();
         return genre;
     }
