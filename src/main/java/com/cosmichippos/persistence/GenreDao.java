@@ -48,7 +48,6 @@ public class GenreDao {
      */
     public List<Genre> getChildren(long parentId) {
         logger.debug("Searching for children of {}", parentId);
-        // String hql = "";
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Genre> query = builder.createQuery(Genre.class);
