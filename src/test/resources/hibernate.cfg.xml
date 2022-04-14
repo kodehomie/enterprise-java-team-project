@@ -8,8 +8,11 @@
         <!--        <property name = "connection.url">-->
         <!--            jdbc:mysql://localhost:3306/teamproject?serverTimezone=UTC-->
         <!--        </property>-->
+<!--        <property name = "connection.url">-->
+<!--            jdbc:mysql://localhost:3306/genre-->
+<!--        </property>-->
         <property name = "connection.url">
-            jdbc:mysql://localhost:3306/genre
+            jdbc:mysql://localhost:3306/genre_test
         </property>
         <property name = "connection.driver_class">com.mysql.cj.jdbc.Driver
         </property>
