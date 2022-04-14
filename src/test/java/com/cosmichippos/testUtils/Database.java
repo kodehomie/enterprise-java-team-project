@@ -135,9 +135,9 @@ public class Database {
             }
 
         } catch (SQLException se) {
-            logger.error(se);
+            logger.error("There was a SQL Error:\n", se);
         } catch (Exception e) {
-            logger.error(e);
+            logger.error("There was an Error:\n",e);
         } finally {
             disconnect();
         }
