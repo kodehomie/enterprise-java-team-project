@@ -30,6 +30,8 @@ public class Genre implements Serializable {
     @Column(name = "parent_id")
     private Long parentId;
 
+
+
     /**
      * Gets id.
      *
