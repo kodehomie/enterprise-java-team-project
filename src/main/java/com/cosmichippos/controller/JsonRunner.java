@@ -74,8 +74,9 @@ public class JsonRunner extends ObjectMapper {
         jsonObject.put("genreParentId", inputParent);
         jsonObject.put("genreParentName", parentName);
 
-        String result = "@Produces(\"application/json\") Output: \n\nGenre Checker Output: \n\n" + jsonObject;
+        String result = jsonObject.toString();
         return Response.status(200).entity(result).build();
+
     }
 
 }
