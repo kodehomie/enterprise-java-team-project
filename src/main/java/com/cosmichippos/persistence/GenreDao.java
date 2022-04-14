@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -41,19 +42,43 @@ public class GenreDao {
     // FIXME: 4/13/2022 I think this should be refactored to return all children of a given ID
     // I can do this tomorrow.
 
-    // /**
-    //  * Gets Genre by parentId.
-    //  *
-    //  * @param parentId the id
-    //  * @return the by id
-    //  */
-    // public Genre getByParentId(long parentId) {
-    //     logger.debug("Searching for getByParentId {}", parentId);
-    //     Session session = sessionFactory.openSession();
-    //     Genre genre = session.get(Genre.class, parentId);
-    //     session.close();
-    //     return genre;
-    // }
+    /**
+     * TODO
+     *
+     */
+    public List<Genre> getChildren(long parentId) {
+        logger.debug("Searching for children of {}", parentId);
+        // String hql = "";
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Genre> query = builder.createQuery(Genre.class);
+        Root<Genre> root = query.from(Genre.class);
+        query.select(root).where(builder.equal(root.get("parent_id"), parentId));
+        TypedQuery<Genre> qry = session.createQuery(query);
+        List<Genre> children = session.createQuery(query).getResultList();
+        session.close();
+        return children;
+    }
+
+    // EntityManager manager = null;
+    // EntityTransaction transaction = null;
+    //      try{
+    //
+    //     manager = this.factory.createEntityManager();
+    //     transaction = manager.getTransaction();
+    //     transaction.begin();
+    //
+    //     CriteriaBuilder cb = manager.getCriteriaBuilder();
+    //     CriteriaQuery<Contact> q1 = cb.createQuery(Contact.class);
+    //     Root<Contact> postRoot = q1.from(Contact.class);
+    //
+    //     q1.select(postRoot).where(cb.equal(postRoot.get("UserName"), name));
+    //     TypedQuery<Contact> qry = manager.createQuery(q1);
+    //
+    //     List<Contact> result = qry.getResultList();
+
+
+
 
     /**
      * Gets all genres.
