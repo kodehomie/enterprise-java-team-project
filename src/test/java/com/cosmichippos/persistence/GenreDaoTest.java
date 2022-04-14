@@ -26,7 +26,7 @@ public class GenreDaoTest {
    @BeforeEach
    void setUp() {
        Database database = Database.getInstance();
-       database.runSQL("/cleandb.sql");
+       database.runSQL("cleandb.sql");
        dao = new GenreDao();
    }
 
@@ -69,7 +69,7 @@ public class GenreDaoTest {
    @Test
    void getAllSuccess() {
        List<Genre> genreList = dao.getAll();
-       assertEquals(971, genreList.size());
+       assertEquals(972, genreList.size());
    }
 
    /**
@@ -85,17 +85,17 @@ public class GenreDaoTest {
        assertEquals(genreToUpdate, retrievedGenre);
    }
 
-//    /**
-//     * Verify insert genre
-//     */
-//    @Test
-//    void insertSuccess() {
-//        Genre genre = new Genre(19, "Country Song",1);
-//        long id = dao.insert(genre);
-//        assertNotEquals(0, id);
-//        Genre insertedGenre = dao.getById(id);
-//        assertEquals(genre, insertedGenre);
-//    }
+   // /**
+   //  * Verify insert genre
+   //  */
+   // @Test
+   // void insertSuccess() {
+   //     Genre genre = new Genre(19, "Country Song",1);
+   //     long id = dao.insert(genre);
+   //     assertNotEquals(0, id);
+   //     Genre insertedGenre = dao.getById(id);
+   //     assertEquals(genre, insertedGenre);
+   // }
 
    /**
     * Verify delete genre
