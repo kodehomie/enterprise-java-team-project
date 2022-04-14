@@ -40,17 +40,15 @@ public class GenreDaoTest {
        assertEquals("Progressive Rock", genre.getName());
    }
 
-   // /**
-   //  * Verify getByParentId
-   //  */
-   // @Test
-   // void getByParentIdSuccess() {
-   //     Genre genre = dao.getByParentId(6);
-   //     Genre genre2 = dao.getById(5);
-   //     long tester = genre2.getParentId();
-   //     assertNotNull(genre);
-   //     assertEquals(genre2, tester);
-   // }
+   /**
+    * Verify getChildren
+    */
+   @Test
+   void getChildrenSuccess() {
+      List<Genre> children = dao.getChildren(1);
+       assertNotNull(children);
+       assertEquals(21, children.size());
+   }
 
 
    /**
