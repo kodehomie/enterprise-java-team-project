@@ -18,10 +18,22 @@ Time: 5:44 PM
         crossorigin = "anonymous">
 
   <title>Genre</title>
+  <script type="text/javascript" >
+    function runJSON() {
+      let searcher = document.getElementsByName("searchTerm")[0].value;
+      window.location.href = "http://localhost:8080/enterprise_java_team_project_war/api/json/" + searcher;
+    }
+
+    function runXML() {
+      let search2 = document.getElementsByName("searchTerm2")[0].value;
+      window.location.href = "http://localhost:8080/enterprise_java_team_project_war/api/xml/" + search2;
+    }
+  </script>
+
 </head>
 <body>
-
-<form action = "searchGenre" class = "form-inline">
+<h2>JSON Response</h2>
+<form action = "javascript:runJSON()" class = "form-inline" method="post">
   <div class = "form-group">
     <label for = "searchTerm">Search</label>
     <input type = "text" class = "form-control" id = "searchTerm"
@@ -31,8 +43,18 @@ Time: 5:44 PM
   <button type = "submit" name = "submit" value = "search"
           class = "btn btn-primary">Search
   </button>
-  <button type = "submit" name = "submit" value = "viewAll"
-          class = "btn btn-primary">View all Genres
+</form>
+<br><br>
+<h2>XML Response</h2>
+<form action = "javascript:runXML()" class = "form-inline" method="post">
+  <div class = "form-group">
+    <label for = "searchTerm">Search</label>
+    <input type = "text" class = "form-control" id = "searchTerm2"
+           name = "searchTerm2" aria-describedby = "searchTermHelp"
+           placeholder = "Enter genre">
+  </div>
+  <button type = "submit" name = "submit" value = "search"
+          class = "btn btn-primary">Search
   </button>
 </form>
 <!--Bootstrap Bundle with Popper-->
