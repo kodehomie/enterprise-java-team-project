@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.cosmichippos.controller"},{"l":"com.cosmichippos.entity"},{"l":"com.cosmichippos.persistence"},{"l":"com.cosmichippos.testUtils"},{"l":"com.cosmichippos.util"}]
