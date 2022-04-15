@@ -21,12 +21,12 @@ Time: 5:44 PM
   <script type="text/javascript" >
     function runJSON() {
       let searcher = document.getElementsByName("searchTerm")[0].value;
-      window.location.href = "http://localhost:8080/enterprise_java_team_project_war/api/json/" + searcher;
+      window.location.href = "http://localhost:8080/cosmic_hippo_war/api/json/" + searcher;
     }
 
     function runXML() {
       let search2 = document.getElementsByName("searchTerm2")[0].value;
-      window.location.href = "http://localhost:8080/enterprise_java_team_project_war/api/xml/" + search2;
+      window.location.href = "http://localhost:8080/cosmic_hippo_war/api/xml/" + search2;
     }
   </script>
 
