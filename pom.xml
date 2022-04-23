@@ -262,7 +262,7 @@
     </dependencies>
 
     <build>
-        <finalName>Genre project</finalName>
+        <finalName>CosmicHippo</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
