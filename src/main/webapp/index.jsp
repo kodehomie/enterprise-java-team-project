@@ -21,12 +21,12 @@ Time: 5:44 PM
   <script type="text/javascript" >
     function runJSON() {
       let searcher = document.getElementsByName("searchTerm")[0].value;
-      window.location.href = "http://entjavaprb3.us-east-2.elasticbeanstalk.com/api/json/" + searcher;
+      window.location.href = "http://entjavaprb3.us-east-2.elasticbeanstalk.com/CosmicHippo/api/json/" + searcher;
     }
 
     function runXML() {
       let search2 = document.getElementsByName("searchTerm2")[0].value;
-      window.location.href = "http://entjavaprb3.us-east-2.elasticbeanstalk.com/api/xml/" + search2;
+      window.location.href = "http://entjavaprb3.us-east-2.elasticbeanstalk.com/CosmicHippo/api/xml/" + search2;
     }
   </script>
 
